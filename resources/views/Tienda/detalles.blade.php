@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es" data-bs-theme="dark">
 <head>
     <meta charset="utf-8">
@@ -7,18 +7,16 @@
     <meta name="author" content="GerardoGR">
     <meta name="theme-color" content="#000000"/>
     <link rel="shortcut icon" href="https://riffmagazine.com/wp-content/uploads/2021/04/KALEO-Surface-Sounds-604.jpg" />
-    <title></title>
+    <title>Detalles</title>
 
-    <!-- Bootstrap -->
     @vite(['resources/js/app.js'])
-
 </head>
 
 <body>
 <header>
     <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
-
+            {{-- Start of the navigation bar --}}
             <div class="collapse navbar-collapse">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
@@ -29,16 +27,15 @@
                     </li>
                 </ul>
             </div>
+            {{-- End of the navigation bar --}}
         </div>
     </nav>
 </header>
 
 <div class="container mt-5 mb-5">
-
     <div class="row">
-
         <div class="col-md-12">
-
+            {{-- Start of the header --}}
             <div class="header">
                 <div class="container">
                     <div class="row">
@@ -51,7 +48,8 @@
 
                         <div class="col-md-2">
                             <div class="navbar navbar-inverse" role="banner">
-                                <nav class="collapse navbar-collapse bs-navbar-collapse navbar-right" role="navigation">
+                                <nav class="collapse navbar-collapse bs-navbar-collapse navbar-right"
+                                     role="navigation">
                                     <ul class="nav navbar-nav">
                                         <li><a href="{{ route('Tienda/') }}">Administrador</a></li>
                                     </ul>
@@ -61,38 +59,12 @@
                     </div>
                 </div>
             </div>
+            {{-- End of the header --}}
 
+            {{-- Start of the page content --}}
             <div class="page-content">
                 <div class="row">
-
-                    <!--<div class="col-md-2">
-                          <div class="sidebar content-box" style="display: block;">
-
-                              <ul class="list-group">
-                                  <li class="list-group-item">
-                                      <a href="{{ route('Tienda/') }}"> Productos</a>
-                                  </li>
-                                  <li class="list-group-item">
-                                      Opción 1
-                                  </li>
-                                  <li class="list-group-item">
-                                      Opción 2
-                                  </li>
-                                  <li class="list-group-item">
-                                      Opción 3
-                                  </li>
-                                  <li class="list-group-item">
-                                      Opción 4
-                                  </li>
-                                  <li class="list-group-item">
-                                      Opción 5
-                                  </li>
-                              </ul>
-                          </div>
-                      </div>-->
-
                     <div class="col-md-10">
-
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="{{ route('Tienda/') }}">Tienda</a></li>
@@ -105,9 +77,7 @@
                             <div class="col-md-12">
 
                                 <div class="content-box-large">
-
                                     <div class="panel-body">
-
                                         @if(Session::has('message'))
                                             <div class="alert alert-primary" role="alert">
                                                 {{ Session::get('message') }}
@@ -125,49 +95,27 @@
 
                                         <p class="h5">Stock:</p>
                                         <p class="h6 mb-3">{{ $discos->stock }}</p>
-
-
                                     </div>
 
                                     <a href="{{ route('Tienda/') }}" class="btn btn-warning mt-3">Volver</a>
-
                                 </div>
-
                             </div>
-
                         </div>
-
                     </div>
-
                 </div>
-
             </div>
-
+            {{-- End of the page content --}}
         </div>
-
     </div>
-
     <hr>
-
 </div>
-
+{{-- Footer --}}
 <footer class="text-muted mt-3 mb-3">
     <div align="center">
         <h6>Creado por GerardoGR</h6>
     </div>
 </footer>
-
-<script type="text/javascript">
-
-    function confirmarEliminar() {
-        var x = confirm("Estas seguro de Eliminar?");
-        if (x)
-            return true;
-        else
-            return false;
-    }
-
-</script>
+{{-- End of the footer section --}}
 
 </body>
 </html>
