@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es" data-bs-theme="dark">
 <head>
     <meta charset="utf-8">
@@ -9,16 +9,14 @@
     <link rel="shortcut icon" href="https://riffmagazine.com/wp-content/uploads/2021/04/KALEO-Surface-Sounds-604.jpg" />
     <title>Discos</title>
 
-    <!-- Bootstrap -->
     @vite(['resources/js/app.js'])
-
 </head>
 
 <body>
 <header>
     <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
-
+            {{-- Navigation bar content --}}
             <div class="collapse navbar-collapse">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
@@ -45,7 +43,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-5">
-                            <!-- Logo -->
+                            {{-- Logo --}}
                             <div class="logo">
                                 <h5>Rutas</h5>
                             </div>
@@ -109,7 +107,6 @@
 
                                     <div class="panel-heading">
                                         <div class="panel-title"><h2>Crear</h2></div>
-
                                     </div>
 
                                     <div class="panel-body">
@@ -149,14 +146,13 @@
 
 </div>
 
-
-
+{{-- Footer --}}
 <footer class="text-muted mt-3 mb-3">
-    <div >
+    <div>
         <h6>Creado por GerardoGR</h6>
     </div>
 </footer>
-
+{{-- End of the footer section --}}
 
 </body>
 </html>

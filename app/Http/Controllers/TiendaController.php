@@ -17,20 +17,30 @@ use Illuminate\Support\Facades\Storage;
 
 class TiendaController extends Controller
 {
-    // Listar todos los productos en la vista principal
+    /* Listar todos los productos en la vista principal
+     * @params $discos: lista de los discos que hay registrados
+     * @return \Illuminate\Contracts\View\View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
+     * */
     public function index(): \Illuminate\Contracts\View\View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
     {
         $discos = Discos::all();
         return view('Tienda.index', compact('discos'));
     }
-    // Crear un Registro
+
+    /* Redirige a la vista correspondiente a crear un Registro
+     * @params $discos: lista de los discos que hay registrados
+     * @return \Illuminate\Contracts\View\View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
+     * */
     public function crear(): \Illuminate\Contracts\View\View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
     {
         $discos = Discos::all();
         return view('Tienda.crear', compact('discos'));
     }
 
-    // Proceso de Creación de un Registro
+    /* Proceso de Creación de un Registro
+     * @params $discos: Datos del disco que se va a crear
+     * @return \Illuminate\Foundation\Application|\Illuminate\Routing\Redirector|\Illuminate\Http\RedirectResponse|\Illuminate\Contracts\Foundation\Application
+     * */
     public function store(ItemCreateRequest $request): \Illuminate\Foundation\Application|\Illuminate\Routing\Redirector|\Illuminate\Http\RedirectResponse|\Illuminate\Contracts\Foundation\Application
     {
         try{
@@ -51,21 +61,31 @@ class TiendaController extends Controller
         return redirect('Tienda/');
     }
 
-    // Leer Registro por 'id' (Read)
+
+    /* Mostrar un solo registro de la tabla segun su id
+     * @params $discos: Registro que se va a mostrar
+     * @return \Illuminate\Contracts\View\View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
+     * */
     public function show($id): \Illuminate\Contracts\View\View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
     {
         $discos = Discos::find($id);
         return view('Tienda.detalles', compact('discos'));
     }
 
-    //  Actualizar un registro (Update)
+    /* Busca y manda los datos del registro que se va a modificar
+    * @params $discos: Registro que se va a editar
+    * @return \Illuminate\Contracts\View\View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
+    * */
     public function actualizar($id): \Illuminate\Contracts\View\View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
     {
         $discos = Discos::find($id);
         return view('Tienda.actualizar',['discos'=>$discos]);
     }
 
-    // Proceso de Actualización de un Registro (Update)
+    /* Proceso de Actualización de un Registro (Update)
+    * @params $discos: Registro que se va a editar
+    * @return  \Illuminate\Http\RedirectResponse
+    * */
     public function update(ItemUpdateRequest $request, $id): \Illuminate\Http\RedirectResponse
     {
         try{
@@ -93,7 +113,10 @@ class TiendaController extends Controller
         return Redirect::to('Tienda/');
     }
 
-    // Eliminar un Registro
+    /* Eliminar un Registro
+    * @params $id: 'id' del registro que se va Eliminar
+    * @return  \Illuminate\Http\RedirectResponse
+    * */
     public function eliminar($id): \Illuminate\Http\RedirectResponse
     {
         // Indicamos el 'id' del registro que se va Eliminar
