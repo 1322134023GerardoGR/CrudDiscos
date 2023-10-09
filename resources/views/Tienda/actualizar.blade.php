@@ -13,8 +13,9 @@
 </head>
 
 <body>
-
+<!-- beggin::Header -->
 <header>
+    <!-- beggin::Navigation bar content -->
     <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample07" aria-controls="navbarsExample07" aria-expanded="false" aria-label="Toggle navigation">
@@ -24,25 +25,24 @@
             <div class="collapse navbar-collapse" id="navbarsExample07">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        {{-- Inicio de la barra de navegación --}}
                     </li>
                     <li class="nav-item">
-                        {{-- Elemento de navegación --}}
                     </li>
                     <li class="nav-item">
-                        {{-- Elemento de navegación --}}
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
+    <!-- end::Navigation bar content -->
 </header>
-
+<!-- end::Header -->
+<!-- beggin::Content -->
 <div class="container mt-5 mb-5">
     <div class="row">
 
         <div class="col-md-12">
-            {{-- Inicio del contenido principal --}}
+
             <h1 style="font-size: 28px;" class=" text-center">Editar</h1>
 
             <div class="header">
@@ -75,18 +75,19 @@
                     </div>
                 </div>
             </div>
-
+            <!-- begin::Page content -->
             <div class="page-content">
                 <div class="row">
 
                     <div class="col-md-10">
-                        {{-- Inicio del contenido principal --}}
+                        <!-- beggin::Breadcrumbs -->
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="{{ route('Tienda/') }}">Productos</a></li>
                                 <li class="breadcrumb-item active" aria-current="page">Actualizar</li>
                             </ol>
                         </nav>
+                        <!-- end::Breadcrumbs -->
 
                         <div class="row">
                             <div class="col-md-12">
@@ -100,42 +101,34 @@
                                     <div class="panel-body">
 
                                         <section class="example mt-4">
-                                            {{-- Inicio del formulario --}}
+                                            <!-- begin::Formulario -->
                                             <form method="POST" action="{{ route('Tienda/prueba/update',$discos->id) }}" role="form" enctype="multipart/form-data">
                                                 <input type="hidden" name="_method" value="PUT">
                                                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                                 @include('Tienda.frm.prt')
                                             </form>
-                                            {{-- Fin del formulario --}}
+                                            <!-- end::Formulario -->
                                         </section>
-
                                     </div>
-
                                 </div>
-
                             </div>
-
                         </div>
-
                     </div>
-                    {{-- Fin del contenido principal --}}
                 </div>
             </div>
-
+            <!-- end::Page content -->
         </div>
-
     </div>
 
     <hr>
 </div>
-
-{{-- Footer --}}
+<!-- end::Content -->
+<!-- beggin::Footer -->
 <footer class="text-muted mt-3 mb-3">
     <div>
         <h6>Creado por GerardoGR</h6>
     </div>
 </footer>
-{{-- End of the footer section --}}
-
+<!-- end::Footer -->
 </body>
 </html>
