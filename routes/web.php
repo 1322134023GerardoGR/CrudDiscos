@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\TiendaController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,25 +18,25 @@ use Illuminate\Support\Facades\Route;
 Route::get('/welcome', function () {
     return view('welcome');
 });
-Route::get('/', 'App\Http\Controllers\TiendaController@index')->name('/index');
+Route::get('/', [TiendaController::class,'index'])->name('/index');
 
 // Rutas CRUD
 /* Crear */
-Route::get('Tienda/crear', 'App\Http\Controllers\TiendaController@crear')->name('Tienda/crear');
-Route::put('Tienda/store', 'App\Http\Controllers\TiendaController@store')->name('Tienda/store');
+Route::get('Tienda/crear', [TiendaController::class,'crear'])->name('Tienda/crear');
+Route::put('Tienda/store', [TiendaController::class,'store'])->name('Tienda/store');
 
 /* Leer */
-Route::get('Tienda/show/{id}', 'App\Http\Controllers\TiendaController@show')->name('Tienda/detalles');
+Route::get('Tienda/show/{id}', [TiendaController::class,'show'])->name('Tienda/detalles');
 
 /* Actualizar */
-Route::get('Tienda/actualizar/{id}', 'App\Http\Controllers\TiendaController@actualizar')->name('Tienda/actualizar');
-Route::put('Tienda/prueba/update/{id}', 'App\Http\Controllers\TiendaController@update')->name('Tienda/prueba/update');
+Route::get('Tienda/actualizar/{id}', [TiendaController::class,'actualizar'])->name('Tienda/actualizar');
+Route::put('Tienda/prueba/update/{id}', [TiendaController::class,'update'])->name('Tienda/prueba/update');
 
 /* Eliminar */
-Route::put('Tienda/eliminar/{id}', 'App\Http\Controllers\TiendaController@eliminar')->name('Tienda/eliminar');
+Route::put('Tienda/eliminar/{id}', [TiendaController::class,'eliminar'])->name('Tienda/eliminar');
 
 /* Vista Principal */
-Route::get('/Tienda', 'App\Http\Controllers\TiendaController@index')->name('Tienda/');
+Route::get('/Tienda', [TiendaController::class,'index'])->name('Tienda/');
 
 
 

@@ -13,10 +13,11 @@
 </head>
 
 <body>
+<!-- beggin::Header -->
 <header>
     <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
-            {{-- Start of the navigation bar --}}
+            <!-- begin::Navigation bar content -->
             <div class="collapse navbar-collapse">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
@@ -27,20 +28,20 @@
                     </li>
                 </ul>
             </div>
-            {{-- End of the navigation bar --}}
+            <!-- end::Navigation bar content -->
         </div>
     </nav>
 </header>
+<!-- end::Header -->
 
 <div class="container mt-5 mb-5">
     <div class="row">
         <div class="col-md-12">
-            {{-- Start of the header --}}
+
             <div class="header">
                 <div class="container">
                     <div class="row">
                         <div class="col-md-5">
-                            <!-- Logo -->
                             <div class="logo">
                                 <h5>Rutas</h5>
                             </div>
@@ -59,23 +60,23 @@
                     </div>
                 </div>
             </div>
-            {{-- End of the header --}}
 
-            {{-- Start of the page content --}}
+            <!-- begin::Page content -->
             <div class="page-content">
                 <div class="row">
                     <div class="col-md-10">
+                        <!-- begin::Breadcrumbs -->
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="{{ route('Tienda/') }}">Tienda</a></li>
                                 <li class="breadcrumb-item active" aria-current="page">{{ $discos->nombre }}</li>
                             </ol>
                         </nav>
-
+                        <!-- end::Breadcrumbs -->
                         <div class="row">
 
                             <div class="col-md-12">
-
+                                <!-- begin::Content -->
                                 <div class="content-box-large">
                                     <div class="panel-body">
                                         @if(Session::has('message'))
@@ -99,23 +100,24 @@
 
                                     <a href="{{ route('Tienda/') }}" class="btn btn-warning mt-3">Volver</a>
                                 </div>
+                                <!-- end::Content -->
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            {{-- End of the page content --}}
+            <!-- end::Page content -->
         </div>
     </div>
     <hr>
 </div>
-{{-- Footer --}}
+
+<!--beggin::Footer-->
 <footer class="text-muted mt-3 mb-3">
     <div align="center">
         <h6>Creado por GerardoGR</h6>
     </div>
 </footer>
-{{-- End of the footer section --}}
-
+<!--end::Footer-->
 </body>
 </html>

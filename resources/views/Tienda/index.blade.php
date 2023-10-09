@@ -13,7 +13,7 @@
 
 <body>
 
-{{-- Start of the header section --}}
+<!-- beggin::Header -->
 <header>
     <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
@@ -30,15 +30,14 @@
         </div>
     </nav>
 </header>
-{{-- End of the header section --}}
-
+<!-- end::Header -->
 <div class="container mt-5 mb-5">
     <div class="row">
         <div class="col-md-12">
 
             <h1 style="font-size: 28px;" class="text-center">Tienda de discos</h1>
 
-            {{-- Start of the header --}}
+            <!-- beggin::tittle header -->
             <div class="header">
                 <div class="container">
                     <div class="row">
@@ -61,21 +60,21 @@
                     </div>
                 </div>
             </div>
-            {{-- End of the header --}}
-
-            {{-- Start of the page content --}}
+            <!-- end::tittle header -->
+            <!-- beggin::Page content -->
             <div class="page-content">
                 <div class="row">
                     <div class="col-md-10">
+                        <!-- beggin::Breadcrumbs -->
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="{{ url('/welcome') }}">Home</a></li>
                                 <li class="breadcrumb-item active" aria-current="page">Discos</li>
                             </ol>
                         </nav>
-
-                        {{-- Start of the content box --}}
-                        <div class="content-box-large">
+                            <!-- end::Breadcrumbs -->
+                            <!-- beggin::Content -->
+                            <div class="content-box-large">
                             <div class="panel-heading">
                                 <div class="panel-title"><h2>Discos</h2></div>
                             </div>
@@ -88,10 +87,10 @@
                                 @endif
 
                                 <a href="{{ route('Tienda/crear') }}" class="btn btn-success mt-4 ml-3">Crear</a>
-
-                                {{-- Start of the table section --}}
+                                <!-- beggin::Table section -->
                                 <section class="example mt-4">
                                     <div class="table-responsive">
+                                        <!-- beggin::Table -->
                                         <table class="table table-striped table-bordered table-hover">
                                             <thead>
                                             <tr>
@@ -112,8 +111,8 @@
                                                     <td class="v-align-middle">{{$disc->album}}</td>
                                                     <td class="v-align-middle">{{$disc->stock}}</td>
                                                     <td class="v-align-middle">
-                                                        {{-- Start of the form for actions --}}
-                                                        <form action="{{ route('Tienda/eliminar',$disc->id) }}"
+                                                        <!-- beggin::form for actions -->
+                                                         <form action="{{ route('Tienda/eliminar',$disc->id) }}"
                                                               method="POST"
                                                               class="form-horizontal" role="form"
                                                               onsubmit="return confirmarEliminar()">
@@ -126,18 +125,19 @@
                                                                class="btn btn-primary">Editar</a>
                                                             <button type="submit" class="btn btn-danger">Eliminar</button>
                                                         </form>
-                                                        {{-- End of the form for actions --}}
+                                                        <!-- end::form for actions -->
                                                     </td>
                                                 </tr>
                                             @endforeach
                                             </tbody>
                                         </table>
+                                        <!-- end::Table -->
                                     </div>
                                 </section>
-                                {{-- End of the table section --}}
+                                <!-- end::Table section -->
                             </div>
                         </div>
-                        {{-- End of the content box --}}
+                        <!-- end::Content -->
                     </div>
                 </div>
             </div>
@@ -146,19 +146,18 @@
     </div>
     <hr>
 </div>
-{{-- Footer --}}
+<!-- beggin::Footer -->
 <footer class="text-muted mt-3 mb-3">
     <div align="center">
         <h6>Created by GerardoGR</h6>
     </div>
 </footer>
-{{-- End of the footer section --}}
+<!-- end::Footer -->
 
 {{-- Script --}}
 <script type="text/javascript">
     function confirmarEliminar() {
-        let x = confirm("Are you sure you want to delete?");
-        return x;
+        return confirm("Are you sure you want to delete?");
     }
 </script>
 {{-- End of Script --}}
