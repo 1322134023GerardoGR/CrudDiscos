@@ -1,8 +1,9 @@
 <div class="row">
     <div class="col-md-12">
+        <!-- beggin::Content -->
         <section class="panel">
             <div class="panel-body">
-
+                {{-- begin::if --}}
                 @if ( !empty ( $discos->id) )
 
                     <div class="mb-3">
@@ -72,7 +73,7 @@
 
 
                 @endif
-
+                {{-- end::if --}}
 
                     <button type="submit" class="btn btn-info">Guardar</button>
                     <a href="{{ route('Tienda/') }}" class="btn btn-warning">Cancelar</a>
@@ -82,5 +83,6 @@
 
             </div>
         </section>
+        <!-- end::Content -->
     </div>
 </div>

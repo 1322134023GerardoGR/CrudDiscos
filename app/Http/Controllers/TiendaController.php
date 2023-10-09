@@ -38,7 +38,7 @@ class TiendaController extends Controller
     }
 
     /* Proceso de Creación de un Registro
-     * @params $discos: Datos del disco que se va a crear
+     * @param $discos: Datos del disco que se va a crear
      * @return \Illuminate\Foundation\Application|\Illuminate\Routing\Redirector|\Illuminate\Http\RedirectResponse|\Illuminate\Contracts\Foundation\Application
      * */
     public function store(ItemCreateRequest $request): \Illuminate\Foundation\Application|\Illuminate\Routing\Redirector|\Illuminate\Http\RedirectResponse|\Illuminate\Contracts\Foundation\Application
