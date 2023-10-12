@@ -11,6 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
+        Schema::dropIfExists('artists');
 
     }
 
@@ -19,6 +20,7 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('discos');
+        Schema::dropIfExists('artists');
+
     }
 };

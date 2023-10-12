@@ -6,7 +6,7 @@
     <meta name="description" content="">
     <meta name="author" content="GerardoGR">
     <meta name="theme-color" content="#000000"/>
-    <link rel="shortcut icon" href="https://riffmagazine.com/wp-content/uploads/2021/04/KALEO-Surface-Sounds-604.jpg" />
+    <link rel="shortcut icon" href="https://riffmagazine.com/wp-content/uploads/2021/04/KALEO-Surface-Sounds-604.jpg"/>
     <title>Detalles</title>
 
     @vite(['resources/js/app.js'])
@@ -24,7 +24,7 @@
                         <a class="nav-link" href="{{ route('Tienda/') }}">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('Tienda/crear') }}">Crear</a>
+                        <a class="nav-link" href="{{ route('Tienda.crear') }}">Crear</a>
                     </li>
                 </ul>
             </div>
@@ -92,10 +92,24 @@
                                         <p class="h6 mb-3">{{ $discos->precio }}</p>
 
                                         <p class="h5">Album:</p>
-                                        <p class="h6 mb-3">{{ $discos->album }}</p>
-
+                                        @if($discos->album_id!=null)
+                                            <p class="h6 mb-3">{{ $albums[($discos->album_id)] }}</p>
+                                        @else
+                                            <p class="h6 mb-3">No tiene album</p>
+                                        @endif
                                         <p class="h5">Stock:</p>
                                         <p class="h6 mb-3">{{ $discos->stock }}</p>
+
+                                        <p class="h5">artistas:</p>
+                                        @if($artistas==null)
+                                            <p class="h6 mb-3">No tiene artistas</p>
+
+                                        @else
+
+                                            @foreach($artistas as $artista)
+                                                <p class="h6 mb-3">{{ $artista->nombre }} {{ $artista->apellidos }}</p>
+                                            @endforeach
+                                        @endif
                                     </div>
 
                                     <a href="{{ route('Tienda/') }}" class="btn btn-warning mt-3">Volver</a>

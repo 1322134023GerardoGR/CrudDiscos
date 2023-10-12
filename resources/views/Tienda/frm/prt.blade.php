@@ -22,10 +22,22 @@
                         </div>
                     </div>
                     <div class="mb-3">
-                        <label for="album" class="negrita">Album:</label>
+                        <label for="album_id" class="negrita">Album:</label>
                         <div>
-                            <input class="form-control" placeholder="4.50" required="required" name="album" type="text"
-                                   id="album" value="{{ $discos->album }}">
+                            <select class="form-control" name="album_id" id="album_id" >
+                                @if($discos->album_id!=null)
+                                <option value="{{ $albums[($discos->album_id)]->id }}"> {{ $albums[($discos->album_id)]->nombre }} </option>
+                                <option value="">Seleccione un album</option>
+                              @foreach($albums as $album)
+                                    <option value="{{ $album->id }}"> {{ $album->nombre }} </option>
+                              @endforeach
+                                @else
+                                    <option value="">Seleccione un album</option>
+                                    @foreach($albums as $album)
+                                        <option value="{{ $album->id }}"> {{ $album->nombre }} </option>
+                                    @endforeach
+                                @endif
+                            </select>
                         </div>
                     </div>
 
@@ -56,10 +68,14 @@
                     </div>
 
                     <div class="mb-3">
-                        <label for="album" class="negrita">Album:</label>
+                        <label for="album_id" class="negrita">Album:</label>
                         <div>
-                            <input class="form-control" placeholder="Romance" required="required" name="album" type="text"
-                                   id="album">
+                            <select class="form-control" name="album_id" id="album_id" required="required">
+                                <option value="">Seleccione un album</option>
+                                @foreach($albums as $album)
+                                    <option value="{{ $album->id }}"> {{ $album->nombre }}</option>
+                                @endforeach
+                            </select>
                         </div>
                     </div>
 

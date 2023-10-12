@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="GerardoGR">
-    <title>Discos</title>
+    <title>Cantantes</title>
 
     @vite(['resources/js/app.js'])
     <link rel="shortcut icon" href="https://riffmagazine.com/wp-content/uploads/2021/04/KALEO-Surface-Sounds-604.jpg" />
@@ -28,9 +28,6 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('Singers') }}">Cantantes</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('Artist') }}">Artistas</a>
-                    </li>
                 </ul>
             </div>
         </div>
@@ -41,7 +38,7 @@
     <div class="row">
         <div class="col-md-12">
 
-            <h1 style="font-size: 28px;" class="text-center">Tienda de discos</h1>
+            <h1 style="font-size: 28px;" class="text-center">Cantantes</h1>
 
             <!-- beggin::tittle header -->
             <div class="header">
@@ -82,7 +79,7 @@
                             <!-- beggin::Content -->
                             <div class="content-box-large">
                             <div class="panel-heading">
-                                <div class="panel-title"><h2>Discos</h2></div>
+                                <div class="panel-title"><h2>Cantantes</h2></div>
                             </div>
 
                             <div class="panel-body">
@@ -92,7 +89,7 @@
                                     </div>
                                 @endif
 
-                                <a href="{{ route('Tienda.crear') }}" class="btn btn-success mt-4 ml-3">Crear</a>
+                                <a href="{{ route('Singers.crear') }}" class="btn btn-success mt-4 ml-3">Crear</a>
                                 <!-- beggin::Table section -->
                                 <section class="example mt-4">
                                     <div class="table-responsive">
@@ -102,36 +99,30 @@
                                             <tr>
                                                 <th>id</th>
                                                 <th>Nombre</th>
-                                                <th>Precio</th>
-                                                <th>Album</th>
-                                                <th>Stock</th>
+                                                <th>Apellidos</th>
+                                                <th>Fecha de nacimiento</th>
                                                 <th>Acciones</th>
                                             </tr>
                                             </thead>
                                             <tbody>
-                                            @foreach($discos as $disc)
+                                            @foreach($singers as $singer)
                                                 <tr>
-                                                    <td class="v-align-middle">{{$disc->id}}</td>
-                                                    <td class="v-align-middle">{{$disc->nombre}}</td>
-                                                    <td class="v-align-middle">{{$disc->precio}}</td>
-                                                    @if($disc->album_id!=null)
-                                                        <td class="v-align-middle">{{$albums[($disc->album_id)]}}</td>
-                                                    @else
-                                                        <td class="v-align-middle">No tiene album</td>
-                                                    @endif
-                                                    <td class="v-align-middle">{{$disc->stock}}</td>
+                                                    <td class="v-align-middle">{{$singer->id}}</td>
+                                                    <td class="v-align-middle">{{$singer->nombre}}</td>
+                                                    <td class="v-align-middle">{{$singer->apellidos}}</td>
+                                                    <td class="v-align-middle">{{$singer->fecha_nacimiento}}</td>
                                                     <td class="v-align-middle">
                                                         <!-- beggin::form for actions -->
-                                                         <form action="{{ route('Tienda.eliminar',$disc->id) }}"
+                                                         <form action="{{ route('Singers.eliminar',$singer->id) }}"
                                                               method="POST"
                                                               class="form-horizontal" role="form"
                                                               onsubmit="return confirmarEliminar()">
                                                             <input type="hidden" name="_method" value="PUT">
                                                             <input type="hidden" name="_token"
                                                                    value="{{ csrf_token() }}">
-                                                            <a href="{{ route('Tienda.detalles',$disc->id) }}"
+                                                            <a href="{{ route('Singers.detalles',$singer->id) }}"
                                                                class="btn btn-dark">Detalles</a>
-                                                            <a href="{{ route('Tienda.actualizar',$disc->id) }}"
+                                                            <a href="{{ route('Singers.actualizar',$singer->id) }}"
                                                                class="btn btn-primary">Editar</a>
                                                             <button type="submit" class="btn btn-danger">Eliminar</button>
                                                         </form>
@@ -156,7 +147,7 @@
     </div>
     <hr>
 </div>
-{{ $discos->links() }}
+{{ $singers->links() }}
 
 
 <!-- beggin::Footer -->
