@@ -7,7 +7,7 @@
     <meta name="author" content="GerardoGR">
     <meta name="theme-color" content="#000000"/>
     <link rel="shortcut icon" href="https://riffmagazine.com/wp-content/uploads/2021/04/KALEO-Surface-Sounds-604.jpg" />
-    <title>Discos</title>
+    <title>Artistas</title>
 
     @vite(['resources/js/app.js'])
 </head>
@@ -24,7 +24,7 @@
                         <a class="nav-link" href="{{ route('Tienda/') }}">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('Tienda.crear') }}">Crear</a>
+                        <a class="nav-link" href="{{ route('Artist.crear') }}">Crear</a>
                     </li>
                 </ul>
             </div>
@@ -40,7 +40,7 @@
 
         <div class="col-md-12">
 
-            <h1 style="font-size: 28px;" class=" text-center">Discos</h1>
+            <h1 style="font-size: 28px;" class=" text-center">Artistas</h1>
             <!-- beggin::tittle header -->
             <div class="header">
                 <div class="container">
@@ -71,7 +71,7 @@
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="{{ route('Tienda/') }}">Discos</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">Crear</li>
+                                <li class="breadcrumb-item active" aria-current="page">Artistas</li>
                             </ol>
                         </nav>
                         <!-- end::Breadcrumbs -->
@@ -89,13 +89,13 @@
 
                                         <section class="example mt-4">
 
-                                            <form method="POST" action="{{ route('Tienda.store') }}"
+                                            <form method="POST" action="{{ route('Artist.store') }}"
                                                   role="form" enctype="multipart/form-data">
 
                                                 <input type="hidden" name="_method" value="PUT">
                                                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
-                                                @include('Tienda.frm.prt')
+                                                @include('Artistas.frm.prt')
                                             </form>
                                         </section>
                                     </div>

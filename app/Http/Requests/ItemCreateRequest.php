@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use function Webmozart\Assert\Tests\StaticAnalysis\integer;
 
 class ItemCreateRequest extends FormRequest
 {
@@ -26,9 +27,9 @@ class ItemCreateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'nombre' => 'required|unique:discos|max:255',
+            'nombre' => 'required|max:255',
             'stock' => 'required',
-            'album' => 'required',
+            'album_id' => 'required',
             'precio' => 'required',
         ];
     }

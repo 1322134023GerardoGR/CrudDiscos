@@ -6,8 +6,8 @@
     <meta name="description" content="">
     <meta name="author" content="GerardoGR">
     <meta name="theme-color" content="#000000"/>
-    <link rel="shortcut icon" href="https://riffmagazine.com/wp-content/uploads/2021/04/KALEO-Surface-Sounds-604.jpg" />
-    <title>Discos</title>
+    <link rel="shortcut icon" href="https://riffmagazine.com/wp-content/uploads/2021/04/KALEO-Surface-Sounds-604.jpg"/>
+    <title>Detalles album</title>
 
     @vite(['resources/js/app.js'])
 </head>
@@ -24,7 +24,7 @@
                         <a class="nav-link" href="{{ route('Tienda/') }}">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('Tienda.crear') }}">Crear</a>
+                        <a class="nav-link" href="{{ route('Albums') }}">Albums</a>
                     </li>
                 </ul>
             </div>
@@ -35,13 +35,9 @@
 <!-- end::Header -->
 
 <div class="container mt-5 mb-5">
-
     <div class="row">
-
         <div class="col-md-12">
 
-            <h1 style="font-size: 28px;" class=" text-center">Discos</h1>
-            <!-- beggin::tittle header -->
             <div class="header">
                 <div class="container">
                     <div class="row">
@@ -50,9 +46,11 @@
                                 <h5>Rutas</h5>
                             </div>
                         </div>
+
                         <div class="col-md-2">
                             <div class="navbar navbar-inverse" role="banner">
-                                <nav class="collapse navbar-collapse bs-navbar-collapse navbar-right" role="navigation">
+                                <nav class="collapse navbar-collapse bs-navbar-collapse navbar-right"
+                                     role="navigation">
                                     <ul class="nav navbar-nav">
                                         <li><a href="{{ route('Tienda/') }}">Administrador</a></li>
                                     </ul>
@@ -62,7 +60,7 @@
                     </div>
                 </div>
             </div>
-            <!-- end::tittle header -->
+
             <!-- begin::Page content -->
             <div class="page-content">
                 <div class="row">
@@ -70,8 +68,8 @@
                         <!-- begin::Breadcrumbs -->
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="{{ route('Tienda/') }}">Discos</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">Crear</li>
+                                <li class="breadcrumb-item"><a href="{{ route('Tienda/') }}">Tienda</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">{{ $albums->nombre }}</li>
                             </ol>
                         </nav>
                         <!-- end::Breadcrumbs -->
@@ -80,25 +78,22 @@
                             <div class="col-md-12">
                                 <!-- begin::Content -->
                                 <div class="content-box-large">
-
-                                    <div class="panel-heading">
-                                        <div class="panel-title"><h2>Crear</h2></div>
-                                    </div>
-
                                     <div class="panel-body">
+                                        @if(Session::has('message'))
+                                            <div class="alert alert-primary" role="alert">
+                                                {{ Session::get('message') }}
+                                            </div>
+                                        @endif
 
-                                        <section class="example mt-4">
+                                        <p class="h5">Nombre:</p>
+                                        <p class="h6 mb-3">{{ $albums->nombre }}</p>
 
-                                            <form method="POST" action="{{ route('Tienda.store') }}"
-                                                  role="form" enctype="multipart/form-data">
+                                        <p class="h5">Año de lanzamiento:</p>
+                                        <p class="h6 mb-3">{{ $albums->anio_lanzamiento }}</p>
 
-                                                <input type="hidden" name="_method" value="PUT">
-                                                <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                   </div>
 
-                                                @include('Tienda.frm.prt')
-                                            </form>
-                                        </section>
-                                    </div>
+                                    <a href="{{ route('Albums') }}" class="btn btn-warning mt-3">Volver</a>
                                 </div>
                                 <!-- end::Content -->
                             </div>
@@ -108,19 +103,16 @@
             </div>
             <!-- end::Page content -->
         </div>
-
     </div>
-
     <hr>
-
 </div>
 
-<!-- beggin::Footer -->
+<!--beggin::Footer-->
 <footer class="text-muted mt-3 mb-3">
     <div align="center">
         <h6>Creado por GerardoGR</h6>
     </div>
 </footer>
-<!-- end::Footer -->
+<!--end::Footer-->
 </body>
 </html>

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="GerardoGR">
-    <title>Discos</title>
+    <title>Albums</title>
 
     @vite(['resources/js/app.js'])
     <link rel="shortcut icon" href="https://riffmagazine.com/wp-content/uploads/2021/04/KALEO-Surface-Sounds-604.jpg" />
@@ -20,16 +20,10 @@
             <div class="collapse navbar-collapse">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="{{ route('Tienda/') }}">Discos</a>
+                        <a class="nav-link" href="{{ route('Tienda/') }}">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('Albums') }}">Albums</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('Singers') }}">Cantantes</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('Artist') }}">Artistas</a>
                     </li>
                 </ul>
             </div>
@@ -41,7 +35,7 @@
     <div class="row">
         <div class="col-md-12">
 
-            <h1 style="font-size: 28px;" class="text-center">Tienda de discos</h1>
+            <h1 style="font-size: 28px;" class="text-center">Albums</h1>
 
             <!-- beggin::tittle header -->
             <div class="header">
@@ -74,8 +68,8 @@
                         <!-- beggin::Breadcrumbs -->
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="{{ url('/welcome') }}">Home</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">Discos</li>
+                                <li class="breadcrumb-item"><a href="{{ route('Tienda/') }}">Home</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Albums</li>
                             </ol>
                         </nav>
                             <!-- end::Breadcrumbs -->
@@ -92,7 +86,7 @@
                                     </div>
                                 @endif
 
-                                <a href="{{ route('Tienda.crear') }}" class="btn btn-success mt-4 ml-3">Crear</a>
+                                <a href="{{ route('Albums.crear') }}" class="btn btn-success mt-4 ml-3">Crear</a>
                                 <!-- beggin::Table section -->
                                 <section class="example mt-4">
                                     <div class="table-responsive">
@@ -102,36 +96,29 @@
                                             <tr>
                                                 <th>id</th>
                                                 <th>Nombre</th>
-                                                <th>Precio</th>
-                                                <th>Album</th>
-                                                <th>Stock</th>
+                                                <th>Año de lanzamiento</th>
                                                 <th>Acciones</th>
                                             </tr>
                                             </thead>
                                             <tbody>
-                                            @foreach($discos as $disc)
+                                            @foreach($albums as $album)
                                                 <tr>
-                                                    <td class="v-align-middle">{{$disc->id}}</td>
-                                                    <td class="v-align-middle">{{$disc->nombre}}</td>
-                                                    <td class="v-align-middle">{{$disc->precio}}</td>
-                                                    @if($disc->album_id!=null)
-                                                        <td class="v-align-middle">{{$albums[($disc->album_id)]}}</td>
-                                                    @else
-                                                        <td class="v-align-middle">No tiene album</td>
-                                                    @endif
-                                                    <td class="v-align-middle">{{$disc->stock}}</td>
+                                                    <td class="v-align-middle">{{$album->id}}</td>
+                                                    <td class="v-align-middle">{{$album->nombre}}</td>
+                                                    <td class="v-align-middle">{{$album->anio_lanzamiento}}</td>
+
                                                     <td class="v-align-middle">
                                                         <!-- beggin::form for actions -->
-                                                         <form action="{{ route('Tienda.eliminar',$disc->id) }}"
+                                                         <form action="{{ route('Albums.eliminar',$album->id) }}"
                                                               method="POST"
                                                               class="form-horizontal" role="form"
                                                               onsubmit="return confirmarEliminar()">
                                                             <input type="hidden" name="_method" value="PUT">
                                                             <input type="hidden" name="_token"
                                                                    value="{{ csrf_token() }}">
-                                                            <a href="{{ route('Tienda.detalles',$disc->id) }}"
+                                                            <a href="{{ route('Albums.detalles',$album->id) }}"
                                                                class="btn btn-dark">Detalles</a>
-                                                            <a href="{{ route('Tienda.actualizar',$disc->id) }}"
+                                                            <a href="{{ route('Albums.actualizar',$album->id) }}"
                                                                class="btn btn-primary">Editar</a>
                                                             <button type="submit" class="btn btn-danger">Eliminar</button>
                                                         </form>
@@ -156,7 +143,7 @@
     </div>
     <hr>
 </div>
-{{ $discos->links() }}
+{{ $albums->links() }}
 
 
 <!-- beggin::Footer -->
