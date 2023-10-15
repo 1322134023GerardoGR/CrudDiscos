@@ -27,6 +27,7 @@ class TiendaController extends Controller
      * */
     public function index(): \Illuminate\Contracts\View\View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
     {
+        $albums=[];
         $discos = discs::paginate(4);
         $albumsBD = albums::all();
         foreach ($albumsBD as $album)
@@ -38,8 +39,9 @@ class TiendaController extends Controller
      * @params $discos: lista de los discos que hay registrados
      * @return \Illuminate\Contracts\View\View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
      * */
-    public function crear(): \Illuminate\Contracts\View\View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
+    public function create(): \Illuminate\Contracts\View\View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
     {
+        $albums=[];
         $discos = discs::all();
         $albumsBD = albums::all();
         foreach ($albumsBD as $album){
@@ -69,7 +71,7 @@ class TiendaController extends Controller
             Session::flash('message', 'Error al Crear !');
         }
 
-        return redirect('Tienda/');
+        return redirect('store');
     }
 
 
@@ -79,6 +81,7 @@ class TiendaController extends Controller
      * */
     public function show($id): \Illuminate\Contracts\View\View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
     {
+        $albums=[];
         $discos = discs::find($id);
         $albumsBD = albums::all();
         foreach ($albumsBD as $album)
@@ -88,7 +91,7 @@ class TiendaController extends Controller
         foreach ($cantantesBD as $cantante)
             $cantantes[$cantante->id] = $cantante;
 
-        $artistas=null;
+        $artistas=[];
         $artistasBD=artists::all();
         foreach ($artistasBD as $artista){
             if($artista->disco_id==$id)
@@ -101,8 +104,9 @@ class TiendaController extends Controller
     * @params $discos: Registro que se va a editar
     * @return \Illuminate\Contracts\View\View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
     * */
-    public function actualizar($id): \Illuminate\Contracts\View\View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
+    public function edit($id): \Illuminate\Contracts\View\View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
     {
+        $albums=[];
         $discos = discs::find($id);
         $albumsBD = albums::all();
         foreach ($albumsBD as $album){
@@ -139,19 +143,19 @@ class TiendaController extends Controller
         } catch (\Exception $e) {
             Session::flash('message', 'Error al Editar !');
         }
-        return Redirect::to('Tienda/');
+        return Redirect::to('store');
     }
 
     /* Eliminar un Registro
     * @params $id: 'id' del registro que se va Eliminar
     * @return  \Illuminate\Http\RedirectResponse
     * */
-    public function eliminar($id): \Illuminate\Http\RedirectResponse
+    public function delete($id): \Illuminate\Http\RedirectResponse
     {
         // Indicamos el 'id' del registro que se va Eliminar
         // Elimino el registro de la tabla 'productos'
         discs::destroy($id);
         Session::flash('message', 'Eliminado Satisfactoriamente !');
-        return Redirect::to('Tienda/');
+        return Redirect::to('store');
     }
 }

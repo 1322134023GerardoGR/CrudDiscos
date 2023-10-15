@@ -17,18 +17,22 @@
 <header>
     <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
-            <!-- begin::Navigation bar content -->
             <div class="collapse navbar-collapse">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="{{ route('Tienda/') }}">Home</a>
+                        <a class="nav-link" href="{{ route('store') }}">Discos</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('Tienda.crear') }}">Crear</a>
+                        <a class="nav-link" href="{{ route('albums') }}">Albums</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('singers') }}">Cantantes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('artist') }}">Artistas</a>
                     </li>
                 </ul>
             </div>
-            <!-- end::Navigation bar content -->
         </div>
     </nav>
 </header>
@@ -37,7 +41,7 @@
 <div class="container mt-5 mb-5">
     <div class="row">
         <div class="col-md-12">
-
+<br>
             <div class="header">
                 <div class="container">
                     <div class="row">
@@ -52,7 +56,7 @@
                                 <nav class="collapse navbar-collapse bs-navbar-collapse navbar-right"
                                      role="navigation">
                                     <ul class="nav navbar-nav">
-                                        <li><a href="{{ route('Tienda/') }}">Administrador</a></li>
+                                        <li><a href="{{ route('store') }}">Administrador</a></li>
                                     </ul>
                                 </nav>
                             </div>
@@ -63,12 +67,13 @@
 
             <!-- begin::Page content -->
             <div class="page-content">
+                <h1>Detalles acerca del artista </h1>
                 <div class="row">
                     <div class="col-md-10">
                         <!-- begin::Breadcrumbs -->
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="{{ route('Tienda/') }}">Tienda</a></li>
+                                <li class="breadcrumb-item"><a href="{{ route('store') }}">Tienda</a></li>
                                 <li class="breadcrumb-item active" aria-current="page">{{ $artists->nombre }}</li>
                             </ol>
                         </nav>
@@ -103,7 +108,7 @@
                                         @endif
                                     </div>
 
-                                    <a href="{{ route('Artist') }}" class="btn btn-warning mt-3">Volver</a>
+                                    <a href="{{ route('artist') }}" class="btn btn-warning mt-3">Volver</a>
                                 </div>
                                 <!-- end::Content -->
                             </div>

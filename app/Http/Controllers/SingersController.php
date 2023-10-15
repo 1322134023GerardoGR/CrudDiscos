@@ -26,7 +26,7 @@ class SingersController extends Controller
         $singers->apellidos = $request->apellidos;
         $singers->fecha_nacimiento = $request->fecha_nacimiento;
         $singers->save();
-        return redirect('Singers');
+        return redirect('singers');
     }
 
     public function show($id): \Illuminate\Contracts\View\View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
@@ -48,13 +48,13 @@ class SingersController extends Controller
         $singer->apellidos = $request->apellidos;
         $singer->fecha_nacimiento = $request->fecha_nacimiento;
         $singer->save();
-        return redirect('Singers');
+        return redirect('singers');
     }
 
-    public function eliminar($id): \Illuminate\Http\RedirectResponse
+    public function delete($id): \Illuminate\Http\RedirectResponse
     {
         $singer = singers::find($id);
         $singer->delete();
-        return redirect('Singers');
+        return redirect('singers');
     }
 }

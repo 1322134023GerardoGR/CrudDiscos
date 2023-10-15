@@ -22,6 +22,8 @@ class ArtistsController extends Controller
      * */
     public function artist(): \Illuminate\Contracts\View\View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
     {
+        $singers=null;
+        $discos=null;
         $artists = artists::paginate(4);
         $singersBD = singers::all();
         foreach ($singersBD as $singer)
@@ -36,8 +38,10 @@ class ArtistsController extends Controller
      * @params $discos: lista de los discos que hay registrados
      * @return \Illuminate\Contracts\View\View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
      * */
-    public function crear(): \Illuminate\Contracts\View\View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
+    public function create(): \Illuminate\Contracts\View\View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
     {
+
+        $discos=null;
         $artists = artists::all();
         $discosBD = discs::all();
         foreach ($discosBD as $disco){
@@ -69,7 +73,7 @@ class ArtistsController extends Controller
             Session::flash('message', 'Error al Crear !');
         }*/
 
-        return redirect('Artist');
+        return redirect('artist');
     }
 
 
@@ -100,7 +104,7 @@ class ArtistsController extends Controller
     * @params $discos: Registro que se va a editar
     * @return \Illuminate\Contracts\View\View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
     * */
-    public function actualizar($id): \Illuminate\Contracts\View\View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
+    public function edit($id): \Illuminate\Contracts\View\View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
     {
         $artists = artists::find($id);
         $discosBD = discs::all();
@@ -133,19 +137,19 @@ class ArtistsController extends Controller
         } catch (\Exception $e) {
             Session::flash('message', 'Error al Editar !');
         }
-        return Redirect::to('Artist');
+        return Redirect::to('artist');
     }
 
     /* Eliminar un Registro
     * @params $id: 'id' del registro que se va Eliminar
     * @return  \Illuminate\Http\RedirectResponse
     * */
-    public function eliminar($id): \Illuminate\Http\RedirectResponse
+    public function delete($id): \Illuminate\Http\RedirectResponse
     {
         // Indicamos el 'id' del registro que se va Eliminar
         // Elimino el registro de la tabla 'productos'
         artists::destroy($id);
         Session::flash('message', 'Eliminado Satisfactoriamente !');
-        return Redirect::to('Artist');
+        return Redirect::to('artist');
     }
 }

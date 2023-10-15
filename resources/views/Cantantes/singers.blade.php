@@ -20,13 +20,16 @@
             <div class="collapse navbar-collapse">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="{{ route('Tienda/') }}">Discos</a>
+                        <a class="nav-link" href="{{ route('store') }}">Discos</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('Albums') }}">Albums</a>
+                        <a class="nav-link" href="{{ route('albums') }}">Albums</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('Singers') }}">Cantantes</a>
+                        <a class="nav-link" href="{{ route('singers') }}">Cantantes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('artist') }}">Artistas</a>
                     </li>
                 </ul>
             </div>
@@ -37,8 +40,7 @@
 <div class="container mt-5 mb-5">
     <div class="row">
         <div class="col-md-12">
-
-            <h1 style="font-size: 28px;" class="text-center">Cantantes</h1>
+            <br>
 
             <!-- beggin::tittle header -->
             <div class="header">
@@ -55,7 +57,7 @@
                             <div class="navbar navbar-inverse" role="banner">
                                 <nav class="collapse navbar-collapse bs-navbar-collapse navbar-right" role="navigation">
                                     <ul class="nav navbar-nav">
-                                        <li><a href="{{ route('Tienda/') }}">Administrador</a></li>
+                                        <li><a href="{{ route('store') }}">Administrador</a></li>
                                     </ul>
                                 </nav>
                             </div>
@@ -67,12 +69,12 @@
             <!-- beggin::Page content -->
             <div class="page-content">
                 <div class="row">
-                    <div class="col-md-10">
+                    <div class="col-md-12">
                         <!-- beggin::Breadcrumbs -->
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="{{ url('/welcome') }}">Home</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">Discos</li>
+                                <li class="breadcrumb-item"><a href="{{ route('store') }}">Home</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">cantantes</li>
                             </ol>
                         </nav>
                             <!-- end::Breadcrumbs -->
@@ -89,7 +91,7 @@
                                     </div>
                                 @endif
 
-                                <a href="{{ route('Singers.crear') }}" class="btn btn-success mt-4 ml-3">Crear</a>
+                                <a href="{{ route('singers.create') }}" class="btn btn-success mt-4 ml-3">Crear</a>
                                 <!-- beggin::Table section -->
                                 <section class="example mt-4">
                                     <div class="table-responsive">
@@ -97,7 +99,6 @@
                                         <table class="table table-striped table-bordered table-hover">
                                             <thead>
                                             <tr>
-                                                <th>id</th>
                                                 <th>Nombre</th>
                                                 <th>Apellidos</th>
                                                 <th>Fecha de nacimiento</th>
@@ -107,22 +108,21 @@
                                             <tbody>
                                             @foreach($singers as $singer)
                                                 <tr>
-                                                    <td class="v-align-middle">{{$singer->id}}</td>
                                                     <td class="v-align-middle">{{$singer->nombre}}</td>
                                                     <td class="v-align-middle">{{$singer->apellidos}}</td>
                                                     <td class="v-align-middle">{{$singer->fecha_nacimiento}}</td>
                                                     <td class="v-align-middle">
                                                         <!-- beggin::form for actions -->
-                                                         <form action="{{ route('Singers.eliminar',$singer->id) }}"
+                                                         <form action="{{ route('singers.delete',$singer->id) }}"
                                                               method="POST"
                                                               class="form-horizontal" role="form"
                                                               onsubmit="return confirmarEliminar()">
                                                             <input type="hidden" name="_method" value="PUT">
                                                             <input type="hidden" name="_token"
                                                                    value="{{ csrf_token() }}">
-                                                            <a href="{{ route('Singers.detalles',$singer->id) }}"
+                                                            <a href="{{ route('singers.details',$singer->id) }}"
                                                                class="btn btn-dark">Detalles</a>
-                                                            <a href="{{ route('Singers.actualizar',$singer->id) }}"
+                                                            <a href="{{ route('singers.edit',$singer->id) }}"
                                                                class="btn btn-primary">Editar</a>
                                                             <button type="submit" class="btn btn-danger">Eliminar</button>
                                                         </form>

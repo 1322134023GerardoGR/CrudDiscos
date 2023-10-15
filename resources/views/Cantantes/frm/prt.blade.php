@@ -61,7 +61,7 @@
                 {{-- end::if --}}
 
                     <button type="submit" class="btn btn-info">Guardar</button>
-                    <a href="{{ route('Tienda/') }}" class="btn btn-warning">Cancelar</a>
+                    <a href="{{ route('singers') }}" class="btn btn-warning">Cancelar</a>
 
                 <br>
                 <br>

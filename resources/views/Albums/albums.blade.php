@@ -20,10 +20,16 @@
             <div class="collapse navbar-collapse">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="{{ route('Tienda/') }}">Home</a>
+                        <a class="nav-link" href="{{ route('store') }}">Discos</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('Albums') }}">Albums</a>
+                        <a class="nav-link" href="{{ route('albums') }}">Albums</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('singers') }}">Cantantes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('artist') }}">Artistas</a>
                     </li>
                 </ul>
             </div>
@@ -34,8 +40,7 @@
 <div class="container mt-5 mb-5">
     <div class="row">
         <div class="col-md-12">
-
-            <h1 style="font-size: 28px;" class="text-center">Albums</h1>
+<br>
 
             <!-- beggin::tittle header -->
             <div class="header">
@@ -52,7 +57,7 @@
                             <div class="navbar navbar-inverse" role="banner">
                                 <nav class="collapse navbar-collapse bs-navbar-collapse navbar-right" role="navigation">
                                     <ul class="nav navbar-nav">
-                                        <li><a href="{{ route('Tienda/') }}">Administrador</a></li>
+                                        <li><a href="{{ route('store') }}">Administrador</a></li>
                                     </ul>
                                 </nav>
                             </div>
@@ -64,11 +69,11 @@
             <!-- beggin::Page content -->
             <div class="page-content">
                 <div class="row">
-                    <div class="col-md-10">
+                    <div class="col-md-12">
                         <!-- beggin::Breadcrumbs -->
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="{{ route('Tienda/') }}">Home</a></li>
+                                <li class="breadcrumb-item"><a href="{{ route('store') }}">Home</a></li>
                                 <li class="breadcrumb-item active" aria-current="page">Albums</li>
                             </ol>
                         </nav>
@@ -76,7 +81,7 @@
                             <!-- beggin::Content -->
                             <div class="content-box-large">
                             <div class="panel-heading">
-                                <div class="panel-title"><h2>Discos</h2></div>
+                                <div class="panel-title"><h2>Albums</h2></div>
                             </div>
 
                             <div class="panel-body">
@@ -86,7 +91,7 @@
                                     </div>
                                 @endif
 
-                                <a href="{{ route('Albums.crear') }}" class="btn btn-success mt-4 ml-3">Crear</a>
+                                <a href="{{ route('albums.create') }}" class="btn btn-success mt-4 ml-3">Crear</a>
                                 <!-- beggin::Table section -->
                                 <section class="example mt-4">
                                     <div class="table-responsive">
@@ -94,7 +99,7 @@
                                         <table class="table table-striped table-bordered table-hover">
                                             <thead>
                                             <tr>
-                                                <th>id</th>
+
                                                 <th>Nombre</th>
                                                 <th>Año de lanzamiento</th>
                                                 <th>Acciones</th>
@@ -103,22 +108,22 @@
                                             <tbody>
                                             @foreach($albums as $album)
                                                 <tr>
-                                                    <td class="v-align-middle">{{$album->id}}</td>
+
                                                     <td class="v-align-middle">{{$album->nombre}}</td>
                                                     <td class="v-align-middle">{{$album->anio_lanzamiento}}</td>
 
                                                     <td class="v-align-middle">
                                                         <!-- beggin::form for actions -->
-                                                         <form action="{{ route('Albums.eliminar',$album->id) }}"
+                                                         <form action="{{ route('albums.delete',$album->id) }}"
                                                               method="POST"
                                                               class="form-horizontal" role="form"
                                                               onsubmit="return confirmarEliminar()">
                                                             <input type="hidden" name="_method" value="PUT">
                                                             <input type="hidden" name="_token"
                                                                    value="{{ csrf_token() }}">
-                                                            <a href="{{ route('Albums.detalles',$album->id) }}"
+                                                            <a href="{{ route('albums.details',$album->id) }}"
                                                                class="btn btn-dark">Detalles</a>
-                                                            <a href="{{ route('Albums.actualizar',$album->id) }}"
+                                                            <a href="{{ route('albums.edit',$album->id) }}"
                                                                class="btn btn-primary">Editar</a>
                                                             <button type="submit" class="btn btn-danger">Eliminar</button>
                                                         </form>

@@ -17,18 +17,22 @@
 <header>
     <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
-            <!-- begin::Navigation bar content -->
             <div class="collapse navbar-collapse">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="{{ route('Tienda/') }}">Home</a>
+                        <a class="nav-link" href="{{ route('store') }}">Discos</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('Artist.crear') }}">Crear</a>
+                        <a class="nav-link" href="{{ route('albums') }}">Albums</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('singers') }}">Cantantes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('artist') }}">Artistas</a>
                     </li>
                 </ul>
             </div>
-            <!-- end::Navigation bar content -->
         </div>
     </nav>
 </header>
@@ -54,7 +58,7 @@
                             <div class="navbar navbar-inverse" role="banner">
                                 <nav class="collapse navbar-collapse bs-navbar-collapse navbar-right" role="navigation">
                                     <ul class="nav navbar-nav">
-                                        <li><a href="{{ route('Tienda/') }}">Administrador</a></li>
+                                        <li><a href="{{ route('store') }}">Administrador</a></li>
                                     </ul>
                                 </nav>
                             </div>
@@ -70,8 +74,9 @@
                         <!-- begin::Breadcrumbs -->
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="{{ route('Tienda/') }}">Discos</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">Artistas</li>
+                                <li class="breadcrumb-item"><a href="{{ route('store') }}">Discos</a></li>
+                                <li class="breadcrumb-item"><a href="{{ route('artist') }}">Artistas</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Crear</li>
                             </ol>
                         </nav>
                         <!-- end::Breadcrumbs -->
@@ -89,10 +94,9 @@
 
                                         <section class="example mt-4">
 
-                                            <form method="POST" action="{{ route('Artist.store') }}"
-                                                  role="form" enctype="multipart/form-data">
+                                            <form method="POST" action="{{ route('artist.store') }}"
+                                                  role="form">
 
-                                                <input type="hidden" name="_method" value="PUT">
                                                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
                                                 @include('Artistas.frm.prt')
