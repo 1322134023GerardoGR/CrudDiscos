@@ -30,7 +30,7 @@ class AlbumsController extends Controller
      * @params $discos: lista de los discos que hay registrados
      * @return \Illuminate\Contracts\View\View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
      * */
-    public function crear(): \Illuminate\Contracts\View\View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
+    public function create(): \Illuminate\Contracts\View\View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
     {
         $albums = albums::all();
 
@@ -56,7 +56,7 @@ class AlbumsController extends Controller
             Session::flash('message', 'Error al Crear !');
         }
 
-        return redirect('Albums');
+        return redirect('albums');
     }
 
 
@@ -74,7 +74,7 @@ class AlbumsController extends Controller
     * @params $discos: Registro que se va a editar
     * @return \Illuminate\Contracts\View\View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
     * */
-    public function actualizar($id): \Illuminate\Contracts\View\View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
+    public function edit($id): \Illuminate\Contracts\View\View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
     {
         $albums = albums::find($id);
         return view('Albums.actualizar', ['albums' => $albums]);
@@ -100,19 +100,19 @@ class AlbumsController extends Controller
        // } catch (\Exception $e) {
        //     Session::flash('message', 'Error al Editar !');
        // }
-        return Redirect::to('Albums');
+        return Redirect::to('albums');
     }
 
     /* Eliminar un Registro
     * @params $id: 'id' del registro que se va Eliminar
     * @return  \Illuminate\Http\RedirectResponse
     * */
-    public function eliminar($id): \Illuminate\Http\RedirectResponse
+    public function delete($id): \Illuminate\Http\RedirectResponse
     {
         // Indicamos el 'id' del registro que se va Eliminar
         // Elimino el registro de la tabla 'productos'
         albums::destroy($id);
         Session::flash('message', 'Eliminado Satisfactoriamente !');
-        return Redirect::to('Albums');
+        return Redirect::to('albums');
     }
 }

@@ -35,7 +35,7 @@
                     <div class="mb-3">
                         <label for="anio_lanzamiento" class="negrita">Año de lanzamiento:</label>
                         <div>
-                            <input class="form-control" placeholder="2020" required="required" name="anio_lanzamiento" type="text"
+                            <input class="form-control" placeholder="2020" required="required" name="anio_lanzamiento" type="number"
                                    id="anio_lanzamiento">
                         </div>
                     </div>
@@ -44,7 +44,7 @@
                 {{-- end::if --}}
 
                     <button type="submit" class="btn btn-info">Guardar</button>
-                    <a href="{{ route('Albums') }}" class="btn btn-warning">Cancelar</a>
+                    <a href="{{ route('albums') }}" class="btn btn-warning">Cancelar</a>
 
                 <br>
                 <br>

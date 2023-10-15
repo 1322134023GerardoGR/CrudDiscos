@@ -25,66 +25,66 @@ Route::get('/', [TiendaController::class,'index'])->name('/index');
 
 // Rutas CRUD de la Tienda
 /* Crear */
-Route::get('Tienda/crear', [TiendaController::class,'crear'])->name('Tienda.crear');
-Route::match(['post','put'],'Tienda/store', [TiendaController::class,'store'])->name('Tienda.store');
+Route::get('store/create', [TiendaController::class,'create'])->name('store.create');
+Route::match(['post','put'],'store/store', [TiendaController::class,'store'])->name('store.store');
 /* Leer */
-Route::get('Tienda/show/{id}', [TiendaController::class,'show'])->name('Tienda.detalles');
+Route::get('store/show/{id}', [TiendaController::class,'show'])->name('store.details');
 /* Actualizar */
-Route::get('Tienda/actualizar/{id}', [TiendaController::class,'actualizar'])->name('Tienda.actualizar');
-Route::put('Tienda/prueba/update/{id}', [TiendaController::class,'update'])->name('Tienda.prueba.update');
+Route::get('store/edit/{id}', [TiendaController::class,'edit'])->name('store.edit');
+Route::put('store/test/update/{id}', [TiendaController::class,'update'])->name('store.test.update');
 
 /* Eliminar */
-Route::put('Tienda/eliminar/{id}', [TiendaController::class,'eliminar'])->name('Tienda.eliminar');
+Route::put('store/delete/{id}', [TiendaController::class,'delete'])->name('store.delete');
 
 /* Vista Principal */
-Route::get('/Tienda', [TiendaController::class,'index'])->name('Tienda/');
+Route::get('/store', [TiendaController::class,'index'])->name('store');
 
 // Rutas CRUD Albums
 /* Crear */
-Route::get('Albums/crear', [AlbumsController::class,'crear'])->name('Albums.crear');
-Route::match(['post','put'],'Albums/store', [AlbumsController::class,'store'])->name('Albums.store');
+Route::get('albums/create', [AlbumsController::class,'create'])->name('albums.create');
+Route::match(['post','put'],'albums/store', [AlbumsController::class,'store'])->name('albums.store');
 /* Leer */
-Route::get('Albums/show/{id}', [AlbumsController::class,'show'])->name('Albums.detalles');
+Route::get('albums/details/{id}', [AlbumsController::class,'show'])->name('albums.details');
 /* Actualizar */
-Route::get('Albums/actualizar/{id}', [AlbumsController::class,'actualizar'])->name('Albums.actualizar');
-Route::put('Albums/prueba/update/{id}', [AlbumsController::class,'update'])->name('Albums.prueba.update');
+Route::get('albums/edit/{id}', [AlbumsController::class,'edit'])->name('albums.edit');
+Route::put('albums/test/update/{id}', [AlbumsController::class,'update'])->name('albums.test.update');
 
 /* Eliminar */
-Route::put('Albums/eliminar/{id}', [AlbumsController::class,'eliminar'])->name('Albums.eliminar');
+Route::put('albums/delete/{id}', [AlbumsController::class,'delete'])->name('albums.delete');
 /* vista principal*/
-Route::get('/Albums', [AlbumsController::class,'albums'])->name('Albums');
+Route::get('/albums', [AlbumsController::class,'albums'])->name('albums');
 
 // Rutas CRUD Cantantes
 /* Crear */
-Route::get('Singers/crear', [SingersController::class,'create'])->name('Singers.crear');
-Route::match(['post','put'],'Albums/store', [SingersController::class,'store'])->name('Singers.store');
+Route::get('singers/create', [SingersController::class,'create'])->name('singers.create');
+Route::match(['post','put'],'singers/store', [SingersController::class,'store'])->name('singers.store');
 /* Leer */
-Route::get('Singers/show/{id}', [SingersController::class,'show'])->name('Singers.detalles');
+Route::get('singers/show/{id}', [SingersController::class,'show'])->name('singers.details');
 /* Actualizar */
-Route::get('Singers/actualizar/{id}', [SingersController::class,'edit'])->name('Singers.actualizar');
-Route::put('Singers/prueba/update/{id}', [SingersController::class,'update'])->name('Singers.prueba.update');
+Route::get('singers/edit/{id}', [SingersController::class,'edit'])->name('singers.edit');
+Route::put('singers/test/update/{id}', [SingersController::class,'update'])->name('singers.test.update');
 
 /* Eliminar */
-Route::put('Singers/eliminar/{id}', [SingersController::class,'eliminar'])->name('Singers.eliminar');
+Route::put('singers/delete/{id}', [SingersController::class,'delete'])->name('singers.delete');
 /* vista principal*/
-Route::get('/Singers', [SingersController::class,'Singers'])->name('Singers');
+Route::get('/singers', [SingersController::class,'Singers'])->name('singers');
 
 
 // Rutas CRUD Artistas
 /* Crear */
-Route::get('Artist/crear', [ArtistsController::class,'crear'])->name('Artist.crear');
-Route::match(['post','put'],'Artist/store', [ArtistsController::class,'store'])->name('Artist.store');
+Route::get('artists/create', [ArtistsController::class,'create'])->name('artist.create');
+Route::match(['post','put'],'Artist/store', [ArtistsController::class,'store'])->name('artist.store');
 /* Leer */
-Route::get('Artist/show/{id}', [ArtistsController::class,'show'])->name('Artist.detalles');
+Route::get('artists/details/{id}', [ArtistsController::class,'show'])->name('artist.details');
 /* Actualizar */
-Route::get('Artist/actualizar/{id}', [ArtistsController::class,'actualizar'])->name('Artist.actualizar');
-Route::put('Artist/prueba/update/{id}', [ArtistsController::class,'update'])->name('Artist.prueba.update');
+Route::get('artists/edit/{id}', [ArtistsController::class,'edit'])->name('artist.edit');
+Route::put('artists/test/update/{id}', [ArtistsController::class,'update'])->name('artist.test.update');
 
 /* Eliminar */
-Route::put('Artist/eliminar/{id}', [ArtistsController::class,'eliminar'])->name('Artist.eliminar');
+Route::put('artists/delete/{id}', [ArtistsController::class,'delete'])->name('artist.delete');
 
 /* Vista Principal */
-Route::get('Artist', [ArtistsController::class,'Artist'])->name('Artist');
+Route::get('artist', [ArtistsController::class,'artist'])->name('artist');
 
 
 Route::get('/dashboard', function () {

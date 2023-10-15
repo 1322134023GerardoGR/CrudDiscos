@@ -8,7 +8,7 @@
     <title>Discos</title>
 
     @vite(['resources/js/app.js'])
-    <link rel="shortcut icon" href="https://riffmagazine.com/wp-content/uploads/2021/04/KALEO-Surface-Sounds-604.jpg" />
+    <link rel="shortcut icon" href="https://riffmagazine.com/wp-content/uploads/2021/04/KALEO-Surface-Sounds-604.jpg"/>
 </head>
 
 <body>
@@ -20,16 +20,16 @@
             <div class="collapse navbar-collapse">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="{{ route('Tienda/') }}">Discos</a>
+                        <a class="nav-link" href="{{ route('store') }}">Discos</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('Albums') }}">Albums</a>
+                        <a class="nav-link" href="{{ route('albums') }}">Albums</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('Singers') }}">Cantantes</a>
+                        <a class="nav-link" href="{{ route('singers') }}">Cantantes</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('Artist') }}">Artistas</a>
+                        <a class="nav-link" href="{{ route('artist') }}">Artistas</a>
                     </li>
                 </ul>
             </div>
@@ -40,8 +40,7 @@
 <div class="container mt-5 mb-5">
     <div class="row">
         <div class="col-md-12">
-
-            <h1 style="font-size: 28px;" class="text-center">Tienda de discos</h1>
+            <br>
 
             <!-- beggin::tittle header -->
             <div class="header">
@@ -58,7 +57,7 @@
                             <div class="navbar navbar-inverse" role="banner">
                                 <nav class="collapse navbar-collapse bs-navbar-collapse navbar-right" role="navigation">
                                     <ul class="nav navbar-nav">
-                                        <li><a href="{{ route('Tienda/') }}">Administrador</a></li>
+                                        <li><a href="{{ route('store') }}">Administrador</a></li>
                                     </ul>
                                 </nav>
                             </div>
@@ -70,17 +69,16 @@
             <!-- beggin::Page content -->
             <div class="page-content">
                 <div class="row">
-                    <div class="col-md-10">
+                    <div class="col-md-12">
                         <!-- beggin::Breadcrumbs -->
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="{{ url('/welcome') }}">Home</a></li>
                                 <li class="breadcrumb-item active" aria-current="page">Discos</li>
                             </ol>
                         </nav>
-                            <!-- end::Breadcrumbs -->
-                            <!-- beggin::Content -->
-                            <div class="content-box-large">
+                        <!-- end::Breadcrumbs -->
+                        <!-- beggin::Content -->
+                        <div class="content-box-large">
                             <div class="panel-heading">
                                 <div class="panel-title"><h2>Discos</h2></div>
                             </div>
@@ -92,7 +90,7 @@
                                     </div>
                                 @endif
 
-                                <a href="{{ route('Tienda.crear') }}" class="btn btn-success mt-4 ml-3">Crear</a>
+                                <a href="{{ route('store.create') }}" class="btn btn-success mt-4 ml-3">Crear</a>
                                 <!-- beggin::Table section -->
                                 <section class="example mt-4">
                                     <div class="table-responsive">
@@ -100,7 +98,7 @@
                                         <table class="table table-striped table-bordered table-hover">
                                             <thead>
                                             <tr>
-                                                <th>id</th>
+
                                                 <th>Nombre</th>
                                                 <th>Precio</th>
                                                 <th>Album</th>
@@ -111,7 +109,7 @@
                                             <tbody>
                                             @foreach($discos as $disc)
                                                 <tr>
-                                                    <td class="v-align-middle">{{$disc->id}}</td>
+
                                                     <td class="v-align-middle">{{$disc->nombre}}</td>
                                                     <td class="v-align-middle">{{$disc->precio}}</td>
                                                     @if($disc->album_id!=null)
@@ -122,18 +120,19 @@
                                                     <td class="v-align-middle">{{$disc->stock}}</td>
                                                     <td class="v-align-middle">
                                                         <!-- beggin::form for actions -->
-                                                         <form action="{{ route('Tienda.eliminar',$disc->id) }}"
+                                                        <form action="{{ route('store.delete',$disc->id) }}"
                                                               method="POST"
                                                               class="form-horizontal" role="form"
                                                               onsubmit="return confirmarEliminar()">
                                                             <input type="hidden" name="_method" value="PUT">
                                                             <input type="hidden" name="_token"
                                                                    value="{{ csrf_token() }}">
-                                                            <a href="{{ route('Tienda.detalles',$disc->id) }}"
+                                                            <a href="{{ route('store.details',$disc->id) }}"
                                                                class="btn btn-dark">Detalles</a>
-                                                            <a href="{{ route('Tienda.actualizar',$disc->id) }}"
+                                                            <a href="{{ route('store.edit',$disc->id) }}"
                                                                class="btn btn-primary">Editar</a>
-                                                            <button type="submit" class="btn btn-danger">Eliminar</button>
+                                                            <button type="submit" class="btn btn-danger">Eliminar
+                                                            </button>
                                                         </form>
                                                         <!-- end::form for actions -->
                                                     </td>

@@ -24,7 +24,7 @@
                     <div class="mb-3">
                         <label for="album_id" class="negrita">Album:</label>
                         <div>
-                            <select class="form-control" name="album_id" id="album_id" >
+                            <select class="form-select" name="album_id" id="album_id"  >
                                 @if($discos->album_id!=null)
                                 <option value="{{ $albums[($discos->album_id)]->id }}"> {{ $albums[($discos->album_id)]->nombre }} </option>
                                 <option value="">Seleccione un album</option>
@@ -44,7 +44,7 @@
                     <div class="mb-3">
                         <label for="stock" class="negrita">Stock:</label>
                         <div>
-                            <input class="form-control" placeholder="40" required="required" name="stock" type="text"
+                            <input class="form-control" placeholder="40" required="required" name="stock" type="number"
                                    id="stock" value="{{ $discos->stock }}">
                         </div>
                     </div>
@@ -70,7 +70,7 @@
                     <div class="mb-3">
                         <label for="album_id" class="negrita">Album:</label>
                         <div>
-                            <select class="form-control" name="album_id" id="album_id" required="required">
+                            <select class="form-select" name="album_id" id="album_id" required="required">
                                 <option value="">Seleccione un album</option>
                                 @foreach($albums as $album)
                                     <option value="{{ $album->id }}"> {{ $album->nombre }}</option>
@@ -82,7 +82,7 @@
                     <div class="mb-3">
                         <label for="stock" class="negrita">Stock:</label>
                         <div>
-                            <input class="form-control" placeholder="10" required="required" name="stock" type="text"
+                            <input class="form-control" placeholder="10" required="required" name="stock" type="number"
                                    id="stock">
                         </div>
                     </div>
@@ -92,7 +92,7 @@
                 {{-- end::if --}}
 
                     <button type="submit" class="btn btn-info">Guardar</button>
-                    <a href="{{ route('Tienda/') }}" class="btn btn-warning">Cancelar</a>
+                    <a href="{{ route('store') }}" class="btn btn-warning">Cancelar</a>
 
                 <br>
                 <br>

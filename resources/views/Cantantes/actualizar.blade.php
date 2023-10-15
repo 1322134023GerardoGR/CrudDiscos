@@ -20,17 +20,19 @@
     <!-- beggin::Navigation bar content -->
     <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample07" aria-controls="navbarsExample07" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="collapse navbar-collapse" id="navbarsExample07">
+            <div class="collapse navbar-collapse">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
+                        <a class="nav-link" href="{{ route('store') }}">Discos</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="{{ route('albums') }}">Albums</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="{{ route('singers') }}">Cantantes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('artist') }}">Artistas</a>
                     </li>
                 </ul>
             </div>
@@ -69,7 +71,7 @@
                             <div class="navbar navbar-inverse" role="banner">
                                 <nav class="collapse navbar-collapse bs-navbar-collapse navbar-right" role="navigation">
                                     <ul class="nav navbar-nav">
-                                        <li><a href="{{ route('Tienda/') }}">Administrador</a></li>
+                                        <li><a href="{{ route('store') }}">Administrador</a></li>
                                     </ul>
                                 </nav>
                             </div>
@@ -85,8 +87,8 @@
                         <!-- beggin::Breadcrumbs -->
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="{{ route('Tienda/') }}">Discos</a></li>
-                                <li class="breadcrumb-item"><a href="{{ route('Singers') }}">Cantantes</a></li>
+                                <li class="breadcrumb-item"><a href="{{ route('store') }}">Discos</a></li>
+                                <li class="breadcrumb-item"><a href="{{ route('singers') }}">Cantantes</a></li>
                                 <li class="breadcrumb-item active" aria-current="page">Actualizar</li>
                             </ol>
                         </nav>
@@ -105,7 +107,8 @@
 
                                         <section class="example mt-4">
                                             <!-- begin::Formulario -->
-                                            <form method="POST" action="{{ route('Singers.prueba.update',$singers->id) }}" role="form" enctype="multipart/form-data">
+                                            <form method="POST" action="{{ route('singers.test.update',$singers->id) }}"
+                                                  role="form">
                                                 <input type="hidden" name="_method" value="PUT">
                                                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                                 @include('Cantantes.frm.prt')
@@ -128,7 +131,7 @@
 <!-- end::Content -->
 <!-- beggin::Footer -->
 <footer class="text-muted mt-3 mb-3">
-    <div>
+    <div align="center">
         <h6>Creado por GerardoGR</h6>
     </div>
 </footer>
