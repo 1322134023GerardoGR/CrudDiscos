@@ -25,7 +25,7 @@
                     <div class="mb-3">
                         <label for="fecha_nacimiento" class="negrita">Fecha de nacimiento:</label>
                         <div>
-                            <input class="form-control" placeholder="15-05-2020" required="required" name="fecha_nacimiento" type="text"
+                            <input class="form-control" placeholder="15-05-2020" required="required" name="fecha_nacimiento" type="date"
                                    id="fecha_nacimiento" value="{{ $singers->fecha_nacimiento }}">
                         </div>
                     </div>
@@ -51,7 +51,7 @@
                     <div class="mb-3">
                         <label for="fecha_nacimiento" class="negrita">Fecha de nacimiento:</label>
                         <div>
-                            <input class="form-control" placeholder="15-05-2020" required="required" name="fecha_nacimiento" type="text"
+                            <input class="form-control" placeholder="15-05-2020" required="required" name="fecha_nacimiento" type="date"
                                    id="fecha_nacimiento" >
                         </div>
                     </div>
