@@ -7,7 +7,7 @@ use App\Models\singers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 
-class SingersController extends Controller
+class SingerController extends Controller
 {
     public function singers(): \Illuminate\Contracts\View\View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
     {

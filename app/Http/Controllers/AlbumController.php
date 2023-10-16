@@ -14,7 +14,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
 
-class AlbumsController extends Controller
+class AlbumController extends Controller
 {
     /* Listar todos los productos en la vista principal
      * @params $discos: lista de los discos que hay registrados
