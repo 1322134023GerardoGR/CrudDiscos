@@ -14,7 +14,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
 
-class ArtistsController extends Controller
+class ArtistController extends Controller
 {
     /* Listar todos los productos en la vista principal
      * @params $discos: lista de los discos que hay registrados
