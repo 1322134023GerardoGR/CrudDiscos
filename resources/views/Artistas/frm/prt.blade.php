@@ -10,7 +10,7 @@
                     <div class="mb-3">
                         <label for="disco_id" class="negrita">Disco:</label>
                         <div>
-                            <select class="form-control" name="disco_id" id="disco_id" >
+                            <select class="form-select" name="disco_id" id="disco_id" >
                                 @if($artists->disco_id!=null)
                                 <option value="{{ $discos[($artists->disco_id)]->id }}"> {{ $discos[($artists->disco_id)]->nombre }} </option>
                                 <option value="">Seleccione un album</option>
@@ -29,7 +29,7 @@
                     <div class="mb-3">
                         <label for="cantante_id" class="negrita">Cantante:</label>
                         <div>
-                            <select class="form-control" name="cantante_id" id="cantante_id" >
+                            <select class="form-select" name="cantante_id" id="cantante_id" >
                                 @if($artists->cantante_id!=null)
                                     <option value="{{ $cantantes[($artists->cantante_id)]->id }}">
                                         {{ $cantantes[($artists->cantante_id)]->nombre }} {{ $cantantes[($artists->cantante_id)]->apellidos }}
@@ -54,7 +54,7 @@
                     <div class="mb-3">
                         <label for="disco_id" class="negrita">Album:</label>
                         <div>
-                            <select class="form-control" name="disco_id" id="disco_id" required="required">
+                            <select class="form-select" name="disco_id" id="disco_id" required="required">
                                 <option value="">Seleccione un disco</option>
                                 @foreach($discos as $disco)
                                     <option value="{{ $disco->id }}"> {{ $disco->nombre }} </option>
@@ -65,7 +65,7 @@
                     <div class="mb-3">
                         <label for="cantante_id" class="negrita">cantante:</label>
                         <div>
-                            <select class="form-control" name="cantante_id" id="cantante_id" required="required">
+                            <select class="form-select" name="cantante_id" id="cantante_id" required="required">
                                 <option value="">Seleccione un cantante</option>
                                 @foreach($cantantes as $cantante)
                                     <option value="{{ $cantante->id }}"> {{ $cantante->nombre }} {{ $cantante->apellidos }} </option>

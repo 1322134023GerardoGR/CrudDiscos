@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Models\singers;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class SingersController extends Controller
 {
@@ -55,6 +56,8 @@ class SingersController extends Controller
     {
         $singer = singers::find($id);
         $singer->delete();
+        Session::flash('message', 'Eliminado Satisfactoriamente !');
+
         return redirect('singers');
     }
 }

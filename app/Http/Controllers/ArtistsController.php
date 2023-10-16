@@ -60,7 +60,7 @@ class ArtistsController extends Controller
      * */
     public function store(Request $request): \Illuminate\Foundation\Application|\Illuminate\Routing\Redirector|\Illuminate\Http\RedirectResponse|\Illuminate\Contracts\Foundation\Application
     {
-        //try {
+        try {
             // Recibo todos los datos desde el formulario Crear
             $artist = new artists();
             $artist->cantante_id = $request->cantante_id;
@@ -68,10 +68,10 @@ class ArtistsController extends Controller
             // Guardamos la fecha de creación del registro
             $artist->created_at = (new DateTime)->getTimestamp();
             $artist->save();
-       /*     Session::flash('message', 'Guardado Satisfactoriamente !');
+            Session::flash('message', 'Guardado Satisfactoriamente !');
         } catch (\Exception $e) {
             Session::flash('message', 'Error al Crear !');
-        }*/
+        }
 
         return redirect('artist');
     }

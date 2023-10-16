@@ -92,20 +92,20 @@
                                             </div>
                                         @endif
 
-                                        <p class="h5">Nombre:</p>
-                                        <p class="h6 mb-3">{{ $discos->nombre }}</p>
+                                        <p class="h4">Nombre:</p>
+                                        <p class="h5 mb-3">{{ $discos->nombre }}</p>
 
-                                        <p class="h5">Precio:</p>
-                                        <p class="h6 mb-3">{{ $discos->precio }}</p>
+                                        <p class="h4">Precio:</p>
+                                        <p class="h5 mb-3">{{ $discos->precio }}</p>
 
-                                        <p class="h5">Album:</p>
+                                        <p class="h4">Album:</p>
                                         @if($discos->album_id!=null)
-                                            <p class="h6 mb-3">{{ $albums[($discos->album_id)] }}</p>
+                                            <p class="h5 mb-3">{{ $albums[($discos->album_id)] }}</p>
                                         @else
-                                            <p class="h6 mb-3">No tiene album</p>
+                                            <p class="h5 mb-3">No tiene album</p>
                                         @endif
-                                        <p class="h5">Stock:</p>
-                                        <p class="h6 mb-3">{{ $discos->stock }}</p>
+                                        <p class="h4">Stock:</p>
+                                        <p class="h5 mb-3">{{ $discos->stock }}</p>
 
                                         <p class="h5">artistas:</p>
                                         @if($artistas==null)
